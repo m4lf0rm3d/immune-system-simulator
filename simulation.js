@@ -16,7 +16,7 @@ const defaultConfig = {
   bacteriaGrowthRate: 3000,
   cytokineEvaporationRate: 0.1, // Renamed from pheromoneEvaporationRate
   bacteriaCount: 200,
-  wbcCount: 5,
+  wbcCount: 10,
 };
 
 let config = { ...defaultConfig };
