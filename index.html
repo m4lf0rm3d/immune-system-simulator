@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Human Immune System Simulator</title>
+    <meta name="description" content="A human immune system simulator built using HTML, CSS, and JavaScript.">
+    <meta name="keywords" content="immune system, human immune system, immune system simulator, javascript, html, css">
+    <meta name="author" content="github.com/m4lf0rm3d">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            display: flex;
+            height: 100vh;
+            background-color: #15202b;
+            /* Twitter dark mode background */
+            color: #ffffff;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .controls {
+            width: 35%;
+            padding: 10px;
+            border-right: 1px solid #38444d;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .controls h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+        .controls label {
+            font-size: 14px;
+            color: #8899a6;
+        }
+
+        .controls input {
+            width: 100%;
+            padding: 10px;
+            margin-top: 2px;
+            background-color: #192734;
+            border: 1px solid #38444d;
+            border-radius: 6px;
+            color: #ffffff;
+        }
+
+        .controls .button-group {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .controls button {
+            padding: 10px 20px;
+            background-color: #00ff00;
+            /* Bacteria color shade */
+            border: none;
+            border-radius: 6px;
+            color: #15202b;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .controls button:hover {
+            background-color: #00cc00;
+        }
+
+        .controls .credits   {
+            margin-top: auto;
+            text-align: center;
+            font-size: 12px;
+            color: #8899a6 ;
+        }
+
+        .credits a{
+            color: #00ff00;
+            text-decoration: none;
+        }
+
+        .simulation {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .simulation h1 {
+            font-size: 32px;
+            margin-bottom: 20px;
+        }
+
+        #simulationCanvas {
+            background-color: #000000;
+            /* Black background */
+            border-radius: 10px;
+            width: 90%;
+            height: 80%;
+        }
+
+        #counters {
+            font-size: 14px;
+            color: #ffffff;
+            margin-bottom: 10px;
+        }
+
+        #counters span {
+            margin-right: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Controls Panel -->
+    <div class="controls">
+        <h1>Controls ⚙️</h1>
+        <label for="wbcSpeed">WBC Speed</label>
+        <input type="number" id="wbcSpeed" value="3" min="1" max="10">
+
+        <label for="bacteriaSpeed">Bacteria Speed</label>
+        <input type="number" id="bacteriaSpeed" value="2.5" min="1" max="10">
+
+        <label for="bacteriaGrowthRate">Bacteria Growth Rate (ms)</label>
+        <input type="number" id="bacteriaGrowthRate" value="3000" min="1000" max="10000">
+
+        <label for="cytokineEvaporationRate">Cytokines Evaporation Rate</label>
+        <input type="number" id="cytokineEvaporationRate" value="0.1" min="0" max="1" step="0.1">
+
+        <label for="bacteriaCount">Bacteria Count</label>
+        <input type="number" id="bacteriaCount" value="200" min="1" max="10000">
+
+        <label for="wbcCount">WBC Count</label>
+        <input type="number" id="wbcCount" value="5" min="1" max="1000">
+
+        <div class="button-group">
+            <button id="resetButton">Reset</button>
+            <button id="updateButton">Update</button>
+        </div>
+        <div class="credits">Made with ❤️ by <a href="https://github.com/m4lf0rm3d">Ahsan Azeemi</a></div>
+    </div>
+
+    <!-- Simulation Area -->
+    <div class="simulation">
+        <h1>ACO based Immune System Simulator 🛡️</h1>
+        <div id="counters">
+            <span>Alive Bacteria: <span id="aliveCount">0</span></span>
+            <span>Dead Bacteria: <span id="deadCount">0</span></span>
+        </div>
+        <canvas id="simulationCanvas"></canvas>
+    </div>
+
+    <script src="simulation.js"></script>
+</body>
+
+</html>
