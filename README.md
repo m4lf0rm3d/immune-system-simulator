@@ -4,6 +4,10 @@
 
 The **Human Immune System Simulator** is an interactive simulation of the body's immune response to bacterial infections, built using **HTML, CSS, and JavaScript**. It employs **Ant Colony Optimization (ACO)** principles to model **white blood cell (WBC)** behavior as they chase and eliminate bacteria.
 
+## Simulator
+
+Play with the simulator using this ([Human Immune System Simulator](https://m4lf0rm3d.github.io/immune-system-simulator/)).
+
 ## Features
 
 - Simulates bacterial growth and white blood cell (WBC) response.
